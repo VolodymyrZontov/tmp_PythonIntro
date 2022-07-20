@@ -2,6 +2,7 @@ import requests
 import json
 from random import randint
 
+
 # url = "http://api.forismatic.com/api/1.0/"
 #
 # params = {"method": "getQuote",
@@ -34,7 +35,7 @@ class Quote:
         while len(self.quotes) < self.quote_nuber:
             try:
                 quote = self._get_quote()
-                if quote["quoteAuthor"].strip():   # Дополнительное ДЗ (как использовать author_exists)
+                if quote["quoteAuthor"].strip():  # Дополнительное ДЗ (как использовать author_exists)
                     self.quotes.append(quote)
             except requests.exceptions.JSONDecodeError:
                 pass
@@ -44,6 +45,9 @@ class Quote:
             json.dump(self.quotes, file)
 
 
-quotes = Quote(10, 'result.json')
-quotes.get_quotes()
-quotes.save_results()
+if __name__ == "__main__":
+    print("Hello fom lesson 14!!!")
+    print(__name__)
+    quotes = Quote(10, 'result.json')
+    quotes.get_quotes()
+    quotes.save_results()
